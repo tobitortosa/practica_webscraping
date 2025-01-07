@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Artículos Guardados";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div id="savedNews-container">
+    <ul id="savedNews"></ul>
+</div>
+
+@section Scripts {
+    <script>
+        function loadSavedNews() {
+            const savedNews = Object.keys(localStorage);
+            const savedList = document.getElementById("savedNews");
+            savedList.innerHTML = "";
+
+            savedNews.forEach(item => {
+                const noticia = JSON.parse(localStorage.getItem(item));
+                const li = document.createElement("li");
+
+                li.innerHTML = `<a href="${noticia.Url}">${noticia.Titulo}</a>`;
+
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Eliminar";
+
+               
+                deleteButton.onclick = function () {
+                    localStorage.removeItem(item);
+                    loadSavedNews();
+                };
+             
+                li.appendChild(deleteButton);
+       
+                savedList.appendChild(li);
+            });
+        }
+
+        window.onload = loadSavedNews;
+    </script>
+}

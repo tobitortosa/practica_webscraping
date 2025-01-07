@@ -1,0 +1,43 @@
+# Ignorar archivos generados por Visual Studio
+.vs
+.vscode
+.idea
+# Ignorar carpetas y archivos binarios generados por .NET
+bin
+obj
+
+# Ignorar archivos de configuración locales
+appsettings.Development.json
+appsettings.Production.json
+
+# Archivos de usuario de RiderVisual Studio Code
+.idea
+.vscode
+
+# Ignorar archivos de compilación y caché de npm
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignorar archivos de compilación de Selenium y ChromeDriver
+selenium-chromedriver
+chromedriver
+
+# Archivos de logs
+.log
+
+# Ignorar archivos de paquetes de NuGet
+.nupkg
+
+# Ignorar archivos de usuario específicos
+.user
+.userosscache
+.suo
+.userprefs
+
+# Ignorar archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar configuración de NuGet
+.nuget

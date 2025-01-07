@@ -1,0 +1,35 @@
+﻿@model List<Noticia>
+@{
+    ViewData["Title"] = "Noticias Recopiladas";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<ul id="noticias">
+    @foreach (Noticia noticia in Model)
+    {
+        <li>
+            <div >
+                <a href="@noticia.url">@noticia.titulo</a>
+            </div>
+            <button onclick="addToLocalStorage('@noticia.titulo', '@noticia.url')">Guardar</button>
+        </li>
+    }
+</ul>
+
+@section Scripts {
+    <script>
+        function addToLocalStorage(titulo, url) {
+            const noticia = {
+                Titulo: titulo,
+                Url: url
+            };
+
+            const noticiaJson = JSON.stringify(noticia);
+
+            localStorage.setItem(titulo, noticiaJson);
+
+            alert("Noticia Guardada.");
+        }
+    </script>
+}
